@@ -1,6 +1,4 @@
 import React,{useState, useEffect} from 'react';
-//Import our smaller components
-import Card from './Card';
 
 const Cards = () => {
     //Set our useEffect functionality
