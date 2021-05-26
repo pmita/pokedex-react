@@ -1,4 +1,6 @@
 import React,{useState, useEffect} from 'react';
+//Import react router modules
+import {Link} from 'react-router-dom';
 
 const Cards = () => {
     //Set our useEffect functionality
@@ -23,6 +25,9 @@ const Cards = () => {
                 <div className="card">
                     <img src={`https://pokeres.bastionbot.org/images/pokemon/${index + 1}.png`} alt={pokemon.name} />
                     <h1>{pokemon.name}</h1>
+                    <Link to={`/pokemon/${index + 1}`}>
+                        <button className="btn">Learn more</button>
+                    </Link>
                 </div>
             ))}
         </div>

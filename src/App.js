@@ -11,10 +11,9 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-          <h1>Here are some of my favourite pokemons</h1>
           <Switch>
             <Route path="/" exact component={Cards} />
-            <Route path="/pokemon" component={PokemonCard} />
+            <Route path="/pokemon/:id" component={PokemonCard} />
           </Switch>
 
       </div>
