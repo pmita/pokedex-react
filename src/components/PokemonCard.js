@@ -4,8 +4,7 @@ const PokemonCard = ({match}) => {
     //useEffect functionality
     useEffect( () => {
         fetchInfo();
-        console.log(currentPokemon);
-    }, []);
+    }, );
 
     //Set individual pokemon state
     const [currentPokemon, setCurrentPokemon] = useState({});
@@ -20,12 +19,20 @@ const PokemonCard = ({match}) => {
     }
     return(
         <div className="pokemon-item">
-            <h1>{currentPokemon.name}</h1>
-            <h2>This pokemon is {currentPokemon.height} cm tall</h2>
-            <h4>It currenly holds position #{currentPokemon.order} in poeple's most favourite pokemon of all time</h4>
-            <h6>It holds a base experience of{currentPokemon.base_experience}</h6>
-            <img src={`https://pokeres.bastionbot.org/images/pokemon/${match.params.id}.png`} alt={currentPokemon.name} />
-
+             <img src={`https://pokeres.bastionbot.org/images/pokemon/${match.params.id}.png`} alt={currentPokemon.name} />
+            
+            <div className="details">
+                <h1>{currentPokemon.name}</h1>
+                <h2>This pokemon is {currentPokemon.height} cm tall</h2>
+                <h4>It currenly holds position #{currentPokemon.order} in poeple's most favourite pokemon of all time</h4>
+                <h6>It holds a base experience of{currentPokemon.base_experience} and some of the moves</h6>
+            
+                <ul className="abilities">
+                    {currentPokemon.abilities.map( item => (
+                        <h2>{item.ability.name}</h2>
+                    ))}
+                </ul>
+            </div>
         </div>
     );
 }
